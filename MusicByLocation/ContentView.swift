@@ -13,7 +13,9 @@ struct ContentView: View {
     var body: some View {
         VStack{
             Text(locationHandler.lastKnownLocation)
-                .padding()
+            Text(locationHandler.lastKnownCountry)
+            Text("\(locationHandler.lastKnownCoordinate.0), \(locationHandler.lastKnownCoordinate.1)")
+            Text(locationHandler.lastKnownAltitude)
             Spacer()
             Button("Find Music", action:{
                 locationHandler.requestLocation()
