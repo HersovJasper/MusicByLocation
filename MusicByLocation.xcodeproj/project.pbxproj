@@ -14,6 +14,10 @@
 		4290C02E264D960E00706CE4 /* MusicByLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4290C02D264D960E00706CE4 /* MusicByLocationTests.swift */; };
 		4290C039264D960E00706CE4 /* MusicByLocationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4290C038264D960E00706CE4 /* MusicByLocationUITests.swift */; };
 		4290C04A264DA6DE00706CE4 /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4290C049264DA6DE00706CE4 /* LocationHandler.swift */; };
+		4290C056265310B800706CE4 /* CLPlacemark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4290C055265310B800706CE4 /* CLPlacemark.swift */; };
+		4290C0642653151700706CE4 /* StateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4290C0632653151700706CE4 /* StateController.swift */; };
+		4290C06A26531BFA00706CE4 /* ArtistResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4290C06926531BFA00706CE4 /* ArtistResponse.swift */; };
+		4290C06F26531C2600706CE4 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4290C06E26531C2600706CE4 /* Artist.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,10 @@
 		4290C038264D960E00706CE4 /* MusicByLocationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicByLocationUITests.swift; sourceTree = "<group>"; };
 		4290C03A264D960E00706CE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4290C049264DA6DE00706CE4 /* LocationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
+		4290C055265310B800706CE4 /* CLPlacemark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLPlacemark.swift; sourceTree = "<group>"; };
+		4290C0632653151700706CE4 /* StateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateController.swift; sourceTree = "<group>"; };
+		4290C06926531BFA00706CE4 /* ArtistResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistResponse.swift; sourceTree = "<group>"; };
+		4290C06E26531C2600706CE4 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +105,15 @@
 		4290C01A264D960600706CE4 /* MusicByLocation */ = {
 			isa = PBXGroup;
 			children = (
+				4290C06826531BE300706CE4 /* Model */,
+				4290C0542653109300706CE4 /* Extensions */,
 				4290C01B264D960600706CE4 /* MusicByLocationApp.swift */,
 				4290C01D264D960600706CE4 /* ContentView.swift */,
 				4290C01F264D960D00706CE4 /* Assets.xcassets */,
 				4290C024264D960D00706CE4 /* Info.plist */,
 				4290C021264D960D00706CE4 /* Preview Content */,
 				4290C049264DA6DE00706CE4 /* LocationHandler.swift */,
+				4290C0632653151700706CE4 /* StateController.swift */,
 			);
 			path = MusicByLocation;
 			sourceTree = "<group>";
@@ -131,6 +142,23 @@
 				4290C03A264D960E00706CE4 /* Info.plist */,
 			);
 			path = MusicByLocationUITests;
+			sourceTree = "<group>";
+		};
+		4290C0542653109300706CE4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4290C055265310B800706CE4 /* CLPlacemark.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4290C06826531BE300706CE4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4290C06926531BFA00706CE4 /* ArtistResponse.swift */,
+				4290C06E26531C2600706CE4 /* Artist.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,6 +293,10 @@
 				4290C04A264DA6DE00706CE4 /* LocationHandler.swift in Sources */,
 				4290C01E264D960600706CE4 /* ContentView.swift in Sources */,
 				4290C01C264D960600706CE4 /* MusicByLocationApp.swift in Sources */,
+				4290C056265310B800706CE4 /* CLPlacemark.swift in Sources */,
+				4290C0642653151700706CE4 /* StateController.swift in Sources */,
+				4290C06A26531BFA00706CE4 /* ArtistResponse.swift in Sources */,
+				4290C06F26531C2600706CE4 /* Artist.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
