@@ -8,13 +8,15 @@
 import Foundation
 
 class StateController: ObservableObject {
+    let locationHandler: LocationHandler = LocationHandler()
+    let iTunesAdaptor = ITunesAdaptor()
+    @Published var artistsByLocation: [Artist] = []
+    
     var lastKnownLocation: String = ""{
         didSet { //property observer
-            getArtists(search: lastKnownLocation)
+            iTunesAdaptor.getArtists(search: lastKnownLocation, completion: updateArtistsByLocation)
         }
     }
-    @Published var artistsByLocation: String = ""
-    let locationHandler: LocationHandler = LocationHandler()
     
     func findMusic() {
         locationHandler.requestLocation()
@@ -25,42 +27,10 @@ class StateController: ObservableObject {
         locationHandler.requestAuthorisation()
     }
     
-    func getArtists(search: String) {
-        let baseUrl = "https://itunes.apple.com"
-        let path = "/search?term=\(search)&entity=musicArtist".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        
-        guard let url = URL(string: baseUrl + path)
-        else {
-            print("Invalid URL")
-            return
+    func updateArtistsByLocation(artists: [Artist]?) {
+        DispatchQueue.main.async{
+            self.artistsByLocation = artists ?? [Artist(name: "Error", url: "https://google.com")]
         }
-        
-        let request = URLRequest(url: url)
-        
-        URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if let data = data {
-                if let response = self.parseJson(json: data) {
-                    let names = response.results.map {
-                        return $0.name
-                    }
-                    DispatchQueue.main.async{
-                        self.artistsByLocation = names.joined(separator: ", ")
-                    }
-                }
-            }
-        }.resume()
-    }
-    
-    func parseJson(json: Data) -> ArtistResponse? {
-        let decoder = JSONDecoder()
-        
-        if let artistResponse = try? decoder.decode(ArtistResponse.self, from: json){
-            return artistResponse
-        } else {
-            print("Error decoding JSON")
-            return nil
-        }
-        
     }
 }
 

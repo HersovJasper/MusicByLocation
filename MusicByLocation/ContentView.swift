@@ -11,15 +11,17 @@ struct ContentView: View {
     @StateObject private var state = StateController()
     
     var body: some View {
-        VStack{
-            Text(state.artistsByLocation)
-                .padding()
-            Spacer()
-            Button("Find Music", action:{
-                state.findMusic()
-            })
+        Form{
+            List(state.artistsByLocation, id: \.self) { item in
+                Link(item.name, destination: URL(string: "\(item.url)")!)
+            }
+            
         }.onAppear(perform: {
             state.requestAccessToLocationData()
+        })
+        
+        Button("Find Music", action:{
+            state.findMusic()
         })
     }
 }
